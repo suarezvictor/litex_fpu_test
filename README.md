@@ -5,6 +5,10 @@ rm -Rf build && litex_sim --cpu-type femtorv --cpu-variant petitbateau
 /demo.py --build-path=build/sim --mem rom
 litex_sim --cpu-type femtorv --cpu-variant petitbateau --rom-init demo.bin 
 ```
+## Expected output:
+
+![image](https://user-images.githubusercontent.com/8551129/217586467-fb250d02-fd39-4a59-b1d2-d1231bce6807.png)
+
 
 ## Dissasembly of test function
 run `riscv64-unknown-elf-objdump -D demo.elf`
