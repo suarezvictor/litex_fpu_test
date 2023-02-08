@@ -56,15 +56,17 @@ run `riscv64-unknown-elf-objdump -D demo.elf`
 ```
 
 ## Vexriscv test (also works)
+```
 rm -Rf build && litex_sim.py --cpu-type vexriscv_smp --with-fpu --with-wishbone-memory
 rm -Rf demo
 ./demo.py --build-path=build/sim --mem rom
 python3 litex_sim.py --rom-init demo.bin --cpu-type vexriscv_smp --with-fpu --with-wishbone-memory
-
-
-## Naxriscv test (doesn't work...)
 ```
 
+## Naxriscv test (doesn't work...)
+
+**NOTE:** this needs this simple patch to litex so it correctly set -march and -mabi flags for the compiler
+```
 rm -Rf build && python3 ../litex/litex/tools/litex_sim.py --cpu-type naxriscv --xlen 32 --with-fpu
 rm -Rf demo
 ./demo.py --build-path=build/sim --mem rom
