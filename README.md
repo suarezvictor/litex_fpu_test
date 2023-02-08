@@ -55,6 +55,13 @@ run `riscv64-unknown-elf-objdump -D demo.elf`
  112:   8082                    ret
 ```
 
+## Vexriscv test (also works)
+rm -Rf build && litex_sim.py --cpu-type vexriscv_smp --with-fpu --with-wishbone-memory
+rm -Rf demo
+./demo.py --build-path=build/sim --mem rom
+python3 litex_sim.py --rom-init demo.bin --cpu-type vexriscv_smp --with-fpu --with-wishbone-memory
+
+
 ## Naxriscv test (doesn't work...)
 ```
 
