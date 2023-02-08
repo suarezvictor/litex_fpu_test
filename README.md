@@ -2,6 +2,7 @@
 ## Build commands:
 ```
 rm -Rf build && litex_sim --cpu-type femtorv --cpu-variant petitbateau
+rm -Rf demo
 /demo.py --build-path=build/sim --mem rom
 litex_sim --cpu-type femtorv --cpu-variant petitbateau --rom-init demo.bin 
 ```
@@ -53,3 +54,13 @@ run `riscv64-unknown-elf-objdump -D demo.elf`
  110:   6145                    addi    sp,sp,48
  112:   8082                    ret
 ```
+
+## Naxriscv test (doesn't work...)
+```
+
+rm -Rf build && python3 ../litex/litex/tools/litex_sim.py --cpu-type naxriscv --xlen 32 --with-fpu
+rm -Rf demo
+./demo.py --build-path=build/sim --mem rom
+python3 ../litex/litex/tools/litex_sim.py --rom-init demo.bin --cpu-type naxriscv --xlen 32 --with-fpu
+```
+
