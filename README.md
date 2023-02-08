@@ -12,7 +12,7 @@ litex_sim --cpu-type femtorv --cpu-variant petitbateau --rom-init demo.bin
 
 
 ## Dissasembly of test function
-run `riscv64-unknown-elf-objdump -D demo.elf`
+run `riscv64-unknown-elf-objdump -D demo/demo.elf`
 ```
 000000b2 <float_test>:
   b2:   7179                    addi    sp,sp,-48
