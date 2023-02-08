@@ -1,9 +1,9 @@
 # LiteX FPU demo
 ## Build commands:
 ```
-rm -Rf build && python3 litex_sim --cpu-type femtorv --cpu-variant petitbateau
+rm -Rf build && litex_sim --cpu-type femtorv --cpu-variant petitbateau
 /demo.py --build-path=build/sim --mem rom
-python3 litex_sim --cpu-type femtorv --cpu-variant petitbateau --rom-init demo.bin 
+litex_sim --cpu-type femtorv --cpu-variant petitbateau --rom-init demo.bin 
 ```
 
 ## Dissasembly of test function
