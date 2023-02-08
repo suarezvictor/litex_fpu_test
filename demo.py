@@ -23,7 +23,8 @@ def main():
     os.makedirs("demo", exist_ok=True)
 
     # Copy contents to demo directory
-    os.system(f"cp {os.path.abspath(os.path.dirname(__file__))}/* demo")
+    os.system(f"cp {os.path.abspath(os.path.dirname(__file__))}/*.* demo")
+    os.system(f"cp {os.path.abspath(os.path.dirname(__file__))}/Makefile demo")
     os.system("chmod -R u+w demo") # Nix specific: Allow linker script to be modified.
 
     # Update memory region.
