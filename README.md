@@ -65,7 +65,9 @@ python3 litex_sim.py --rom-init demo.bin --cpu-type vexriscv_smp --with-fpu --wi
 
 ## Naxriscv test (doesn't work...)
 
-**NOTE:** this needs this simple patch to litex so it correctly set -march and -mabi flags for the compiler
+**NOTE:** this needs this simple patch to litex so it correctly set `-march` and `-mabi` flags for the compiler
+https://github.com/enjoy-digital/litex/issues/1592
+
 ```
 rm -Rf build && python3 ../litex/litex/tools/litex_sim.py --cpu-type naxriscv --xlen 32 --with-fpu
 rm -Rf demo
