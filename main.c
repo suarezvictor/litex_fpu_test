@@ -16,6 +16,15 @@ void float_test(void)
   }
 }
 
+#ifdef __NaxRiscv__
+#define csr_set(csr, val)                    \
+({                                \
+    unsigned long __v = (unsigned long)(val);        \
+    __asm__ __volatile__ ("csrs " #csr ", %0"        \
+                  : : "rK" (__v));            \
+})
+#endif
+
 int main(void)
 {
 #ifdef CONFIG_CPU_HAS_INTERRUPT
@@ -24,6 +33,9 @@ int main(void)
 #endif
 	uart_init();
 
+#ifdef __NaxRiscv__
+    csr_set(mstatus, (1 << 13));
+#endif
 	float_test();
 	return 0;
 }
