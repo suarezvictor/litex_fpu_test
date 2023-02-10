@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 volatile float f = .5;
+void float_test(void);
 void float_test(void)
 {
   int a;
@@ -16,14 +17,6 @@ void float_test(void)
   }
 }
 
-#ifdef __NaxRiscv__
-#define csr_set(csr, val)                    \
-({                                \
-    unsigned long __v = (unsigned long)(val);        \
-    __asm__ __volatile__ ("csrs " #csr ", %0"        \
-                  : : "rK" (__v));            \
-})
-#endif
 
 int main(void)
 {
@@ -34,7 +27,7 @@ int main(void)
 	uart_init();
 
 #ifdef __NaxRiscv__
-    csr_set(mstatus, (1 << 13));
+    csrs(mstatus, (1 << 13)); //enable FPU
 #endif
 	float_test();
 	return 0;
